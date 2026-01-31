@@ -88,4 +88,23 @@ An assertion could be interpreted as an attestation making a claim about the val
 
 ## ETSI EN 319 411-1
 
-This document describes two roles that are relevant to this text: 1) Certificate status service, and 2) Revocation manager.
+This document describes two roles that are relevant to this text: 1) Certificate status service, and 2) Revocation manager. 
+
+
+### Section 6.2.4 
+
+Section 6.2.4 deals with identification and authentication for revocation requests. It states requirements for describing the procedures for revocation and CA certificates focused on who can submit requests, how they are submitted, potential confirmation notes, reasons for revocation, the mechanism used for distributing revocation information, and maximum delay times. The 24 hour period is mentioned in REV-6.2.4-03A and explicitly mentions certificate revocation. All requests must be authenticated and checked for revocation authoritzation.
+
+### Section 6.3.9
+
+Section 6.3.9 deals specifically with revocation and suspension. It lists reasons for when a TSP needs to revoke a non expired certificate, and obligations to notify users. In REV-6.3.9-15 it is stated explicitly that if you use short-term certificates, you do not need revocation. Relatedly, REV-6.3.9-17 states a conditional requirement for the TSP to notify of problems with short-lived certificates.
+
+Notably, there is seemingly no requirement in 6.3.9 that requires protecting revocation signing keys. Arguably, the only requirement is the problem notification requirement in REV-6.3.9-17.
+
+### Section 6.3.10
+
+Section 6.3.10 details Certificate status services, and lays down requirements for a TSP who provides services for checking the status of certificates. Among many requirements of availability, mechanisms supported (OCSP and CRL), and guidance on how to handle various response mismatches, there is one requirement specifically about the status information itself:
+
+> The integrity and authenticity of the status information shall be protected - CSS-6.3.10-03
+
+One interpretation is that this would require hardware protection of signing keys. But other sections mention protecting the secrecy of key material. When integrity and authenticity is discussed, it is arguably enough to simply sign the status information with key material that can be linked to the certificate status service.
