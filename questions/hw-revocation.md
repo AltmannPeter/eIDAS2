@@ -6,9 +6,10 @@ Summary: CIR 2015/1502 does not mandate hardware-protected signing keys for revo
 
 The work in TS14 has raised the question of whether signing keys for validity status objects (e.g., revocation lists or validity status tokens) must be hardware-protected. This text examines the topic by reviewing the following sources:
 
-1. The [CIR 2015/1502](https://eur-lex.europa.eu/eli/reg_impl/2015/1502/oj/eng) with its associated [guidance](https://docs.google.com/document/d/153aFq40pzHETYkz12sJeDTczRDvECiDO/edit?usp=sharing&ouid=113683449039040581284&rtpof=true&sd=true)
-2. [ETSI EN 319 411-1](https://www.etsi.org/deliver/etsi_en/319400_319499/31941101/01.04.01_60/en_31941101v010401p.pdf)
-3. The [CIR 2025/2160](https://eur-lex.europa.eu/eli/reg_impl/2025/2160/oj)
+1. [Regulation No 910/2014](https://eur-lex.europa.eu/eli/reg/2014/910/oj/eng)
+2. The [CIR 2015/1502](https://eur-lex.europa.eu/eli/reg_impl/2015/1502/oj/eng) with its associated [guidance](https://docs.google.com/document/d/153aFq40pzHETYkz12sJeDTczRDvECiDO/edit?usp=sharing&ouid=113683449039040581284&rtpof=true&sd=true)
+3. [ETSI EN 319 411-1](https://www.etsi.org/deliver/etsi_en/319400_319499/31941101/01.04.01_60/en_31941101v010401p.pdf)
+4. The [CIR 2025/2160](https://eur-lex.europa.eu/eli/reg_impl/2025/2160/oj)
 
 Next, key terms used in this text are defined. 
 
