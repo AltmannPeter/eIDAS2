@@ -95,6 +95,16 @@ This document describes two roles that are relevant to this text: 1) Certificate
 
 Section 6.2.4 deals with identification and authentication for revocation requests. It states requirements for describing the procedures for revocation and CA certificates focused on who can submit requests, how they are submitted, potential confirmation notes, reasons for revocation, the mechanism used for distributing revocation information, and maximum delay times. The 24 hour period is mentioned in REV-6.2.4-03A and explicitly mentions certificate revocation. All requests must be authenticated and checked for revocation authoritzation.
 
+### Section 6.3.3
+
+Key protection is mentioned in GEN-6.3.3-08 (NCP) and GEN-6.3.3-09A (NCP+) as follows:
+
+> If the CA generated the subject's key pair, the private key shall be securely passed to the registered subject; or to the TSP managing the subject'sprivate key;
+
+> If the TSP generated the subject's key pair, the secure cryptographic device containing the subject's private key shall be securely delivered to the registered subject or, in the case of a third party TSP managing the key on behalf of the subject, to that third party TSP.
+
+Secure hardware is mentioned explicity in the context of certificate signing keys when these are issued by the CA.
+
 ### Section 6.3.9
 
 Section 6.3.9 deals specifically with revocation and suspension. It lists reasons for when a TSP needs to revoke a non expired certificate, and obligations to notify users. In REV-6.3.9-15 it is stated explicitly that if you use short-term certificates, you do not need revocation. Relatedly, REV-6.3.9-17 states a conditional requirement for the TSP to notify of problems with short-lived certificates.
@@ -107,4 +117,31 @@ Section 6.3.10 details Certificate status services, and lays down requirements f
 
 > The integrity and authenticity of the status information shall be protected - CSS-6.3.10-03
 
-One interpretation is that this would require hardware protection of signing keys. But other sections mention protecting the secrecy of key material. When integrity and authenticity is discussed, it is arguably enough to simply sign the status information with key material that can be linked to the certificate status service.
+One interpretation is that this would require hardware protection of signing keys. But other sections explicity mention protecting the *secrecy* of key material when discussing hardware-protected keys. When integrity and authenticity is discussed, it is arguably enough to simply sign the status information with key material that can be linked to the certificate status service.
+
+### Section 6.5
+
+Section 6.5 is about technical security controls. It begins with a section on key pair generation and installation. In particular, GEN-6.5.1-02 specifically mentions the TSP generating keys used for revocation services.
+
+> The TSP shall generate CA keys, including keys used by revocation and registration services, securely and the private key shall be secret.
+
+Note that the text only requires *securely* without prescribing exactly how this should happen. The next couple of points, further detail what secure generation entails:
+
+- GEN-6.5.1-03 is about physical location security
+- GEN-6.5.1-04 is about dual control during key pair generation
+- GEN-6.5.1-05 is about personnel practices for key generation
+- GEN-6.5.1-06 is about algorithm usage
+- GEN-6.5.1-07 is about key length
+
+Neither of these mention the need for hardware securing the revocation signing key.
+
+Later, in SDP-6.5.1-23 (NCP+), there is a hardware requirement for the case when the CA generates the subject's keys:
+
+> If the CA generates the subject's keys, the TSP shall secure the issuance of a secure cryptographic device to the subject.
+
+One interpretation of the above is that revocation keys that are used on NCP+, should be protected in secure hardware. This is supported by text in section 6.5.2.
+
+> TSP's key pair generation, including keys used by revocation and registration services, shall be carried out within a secure cryptographic device which is a trustworthy system which: a) is issued to EAL 4 or higher [...]; or b) meets the requirements identified in [ISO/IEC 19790, FIPS PUB 140-2 level 3 or FIPS PUB 140-3 level 3 - OVR-6.5.2-01
+
+This seems to be the strongest support in favor of the requirement to have secure hardware for protecting revocation signing keys. But, this is specifically limited to CA keys and may or may not apply to eID / (Q)EAA revocation keys.
+
