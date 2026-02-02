@@ -37,7 +37,7 @@ There are statements concerning misuse and alteration that, at first glance, may
 
 > [...] characterised with reference to technical specifications, standards and procedures related thereto, including technical controls, the purpose of which is to prevent misuse or alteration of the identity. - Regulation (EU) No 910/2014 Article 8 2§
 
-However, Regulation (EU) No 910/2014 Article 8 does not appear to include validity status checks among the specifications, standards, and procedures related to assurance levels. In fact, it clarifies that authentication is separate from validity status checking (cf. the Guirande section):
+However, Regulation (EU) No 910/2014 Article 8 does not appear to include validity status checks among the specifications, standards, and procedures related to assurance levels. In fact, it clarifies that authentication is separate from validity status checking (cf. the Guandance section):
 
 > the authentication mechanism, through which the natural or legal person uses the electronic identification means to confirm its identity to a relying party; - Regulation (EU) No 910/2014 Article 8 3§
 
